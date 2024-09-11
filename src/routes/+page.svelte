@@ -35,7 +35,7 @@ import { base } from '$app/paths';
   <div class="row hero is-vertical-align">
     <div class="col">
       <p>Alat transliterasi sederhana untuk mengalihkan/mengubah/mengkonversi teks Aksara Sasak ke bentuk Latin ataupun sebaliknya.</p>
-      <a href="{ base }/latin-jawa" class="button primary">Coba Sekarang</a>
+      <a href="{ base }/latin-sasak" class="button primary">Coba Sekarang</a>
     </div>
     <div class="col illustration-image">
       <picture>
