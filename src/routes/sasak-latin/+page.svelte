@@ -7,12 +7,12 @@ import Converter from "$lib/components/Converter.svelte";
 <SvelteSeo
     title="Transliterasi Aksara Sasak | Sasak-Latin"
     description="Alat transliterasi sederhana untuk mengalihkan/mengubah/mengkonversi teks aksara Sasak menjadi aksara Latin."
-    canonical="https://arh007.github.io/lapushamzanwadi/jawa-latin"
+    canonical="https://arh007.github.io/lapushamzanwadi/sasak-latin"
     keywords="alat, transliterasi, konversi, alih, aksara, sasak, latin"
     openGraph={{
         title: "Transliterasi Aksara Sasak | Sasak-Latin",
         description: "Alat transliterasi sederhana untuk mengalihkan/mengubah/mengkonversi teks aksara Sasak menjadi aksara Latin.",
-        url: "https://arh007.github.io/lapushamzanwadi/jawa-latin",
+        url: "https://arh007.github.io/lapushamzanwadi/sasak-latin",
         type: "website",
         images: [{
             url: "https://arh007.github.io/lapushamzanwadi/alih-aksara-screenshot.png",
