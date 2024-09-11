@@ -7,12 +7,12 @@ import Converter from "$lib/components/Converter.svelte";
 <SvelteSeo
     title="Transliterasi Aksara Sasak | Sasak-Kawi"
     description="Alat transliterasi sederhana untuk mengalihkan/mengubah/mengkonversi teks aksara Sasak menjadi aksara Kawi."
-    canonical="https://arh007.github.io/lapushamzanwadi/jawa-kawi"
+    canonical="https://arh007.github.io/lapushamzanwadi/sasak-kawi"
     keywords="alat, transliterasi, konversi, alih, aksara, sasak, kawi"
     openGraph={{
         title: "Transliterasi Aksara Sasak | Sasak-Kawi",
         description: "Alat transliterasi sederhana untuk mengalihkan/mengubah/mengkonversi teks aksara Sasak menjadi aksara Kawi.",
-        url: "https://arh007.github.io/lapushamzanwadi/jawa-kawi",
+        url: "https://arh007.github.io/lapushamzanwadi/sasak-kawi",
         type: "website",
         images: [{
             url: "https://arh007.github.io/lapushamzanwadi/alih-aksara-screenshot.png",

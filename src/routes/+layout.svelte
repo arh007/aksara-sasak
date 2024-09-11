@@ -14,7 +14,7 @@
             <a href="{ base }/latin-sasak">Latin-Sasak</a>
             <a href="{ base }/sasak-latin">Sasak-Latin</a>
             <a href="{ base }/latin-kawi">Latin-Kawi</a>
-            <a href="{ base }/jawa-kawi">Sasak-Kawi</a>
+            <a href="{ base }/sasak-kawi">Sasak-Kawi</a>
         </div>
     </nav>
 
