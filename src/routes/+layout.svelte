@@ -11,8 +11,8 @@
             <a class="brand" href="{ base }/">Transliterasi Aksara Sasak</a>
         </div>
         <div class="nav-right">
-            <a href="{ base }/latin-jawa">Latin-Sasak</a>
-            <a href="{ base }/jawa-latin">Sasak-Latin</a>
+            <a href="{ base }/latin-sasak">Latin-Sasak</a>
+            <a href="{ base }/sasak-latin">Sasak-Latin</a>
             <a href="{ base }/latin-kawi">Latin-Kawi</a>
             <a href="{ base }/jawa-kawi">Sasak-Kawi</a>
         </div>
