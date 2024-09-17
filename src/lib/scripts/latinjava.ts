@@ -2,25 +2,25 @@ const wyanjana:{ [id: string]: string; }  = {
     b: 'ᬩ',       // ba
     c: 'ᬘ',       // ca
     d: 'ᬤ',       // da
-    dh: 'ᬥ',       // dha
+    dh:'ᬥ',       // dha
     ḍ: 'ᬟ',       // dha
-    ḍh: 'ᬠ',       // dha mahaprana
-    dz: 'ᬤ᭄ᬚ᬴',     // dza rekan
+    ḍh:'ᬠ',       // dha mahaprana
+    dz:'ᬤ᭄ᬚ᬴',     // dza rekan
     f: 'ᬧ᬴',      // fa rekan
     g: 'ᬕ',       // ga
-    gh: '',     // gha rekan
+    gh:'',     // gha rekan
     h: 'ᬳ',       // ha
     j: 'ᬚ',       // ja
     k: 'ᬓ',       // ka
-    kh: 'ᬔ',     // kha rekan
+    kh:'ᬔ',     // kha rekan
     l: 'ᬮ',       // la
     m: 'ᬫ',       // ma
     n: 'ᬦ',       // na
-    ng: 'ᬗ',      // nga
+    ng:'ᬗ',      // nga
     ŋ: 'ᬗ',       // nga
-    ny: 'ᬜ',       // nya
-    nc: 'ᬜ᭄ᬘ',       // nca
-    nj: 'ᬜ᭄ᬚ',       // nja
+    ny:'ᬜ',       // nya
+    nc:'ᬜ᭄ᬘ',       // nca
+    nj:'ᬜ᭄ᬚ',       // nja
     ñ: 'ᬜ',       // nya
     ṇ: 'ᬡ',       // na murda
     p: 'ᬧ',       // pa
@@ -68,21 +68,21 @@ const murdaConsonants:{ [id: string]: string; } = {
     'b': 'ᬪ',       // ba murda
 }
 
-const sandhanganWyanjana:{ [id: string]: string; } = {
+const penganggeArdhaswara:{ [id: string]: string; } = {
     r: '᭄',   // cakra
     ṛ: 'ᬺ',   // cakra keret
     y: '᭄ᬬ',   // pengkal
     l: '᭄ᬮ',   
     w: '᭄ᬯ', 
-    rê: 'ᬋ', //pa cêrêk
-    rě: 'ᬋ', //pa cěrěk
-    lê: 'ᬍ', //nga lêlêt
-    lě: 'ᬍ', //nga lělět
-    lêu: 'ᬎ', //nga lêlêt Raswadi -- archaic
+    rê:'ᬋ', //pa cêrêk
+    rě:'ᬋ', //pa cěrěk
+    lê:'ᬍ', //nga lêlêt
+    lě:'ᬍ', //nga lělět
+    lêu:'ᬎ', //nga lêlêt Raswadi -- archaic
     lěu: 'ᬎ', //nga lělět Raswadi -- archaic
 }
 
-const sandhanganPanyigeg:{ [id: string]: string; } = {
+const penganggeTangenan:{ [id: string]: string; } = {
     r: 'ᬃ',
     h: 'ᬄ', 
     ng:'ᬂ',
@@ -91,13 +91,13 @@ const sandhanganPanyigeg:{ [id: string]: string; } = {
     ṃ: 'ᬀ',    
 }
 
-const sandhanganSwara:{ [id: string]: string; } = { 
+const pengaggeSwara:{ [id: string]: string; } = { 
     a: '',
     ö: 'ᭃ',
-    aa: 'ᬵ',
-    ai: ' ᬿ',
-    au: 'ᭁ',
-    ôô: '',
+    aa:'ᬵ',
+    ai:' ᬿ',
+    au:'ᭁ',
+    ôô:'',
     ā: 'ᬵ',
     i: 'ᬶ',
     ii:'ᬷ',
@@ -112,11 +112,11 @@ const sandhanganSwara:{ [id: string]: string; } = {
     ě: 'ᭂ',
     ĕ: 'ᭂ',
     o: 'ᭀ',
-    rö: ' ᬻ',
-    lö: 'ᬽ',
+    rö:' ᬻ',
+    lö:'ᬽ',
 }
 
-const pada:{ [id: string]: string; } = {
+const cecirenpepaosan:{ [id: string]: string; } = {
     ' ' : '​',
     '.' : '᭟',
     ',' : '᭞',
@@ -153,7 +153,7 @@ function convert(str:string, isIgnoreSpace:boolean = false, isMurda:boolean = fa
                    cc = cc.toLowerCase();
                }
 
-               if(isConsonantsSandhanganPanyigeg(cc)) {
+               if(isConsonantsPenganggeTangenan(cc)) {
                    isAlreadyStacked = false;
                    
                    if(i - 2 >= 0 && i + 1 < length) {
@@ -161,7 +161,7 @@ function convert(str:string, isIgnoreSpace:boolean = false, isMurda:boolean = fa
                        var cAfter = str[i + 1];
 
                        if(isVowels(cBefore) && !isVowels(cAfter)) {
-                           output.push(sandhanganPanyigeg[cc]);
+                           output.push(penganggeTangenan[cc]);
                            continue;
                        }
                    }
@@ -170,7 +170,7 @@ function convert(str:string, isIgnoreSpace:boolean = false, isMurda:boolean = fa
                        var cBefore = str[i - 2];
 
                        if(isVowels(cBefore)) {
-                           output.push(sandhanganPanyigeg[cc]);
+                           output.push(penganggeTangenan[cc]);
                            continue;
                        }
                    }
@@ -181,7 +181,7 @@ function convert(str:string, isIgnoreSpace:boolean = false, isMurda:boolean = fa
                    var lastOutput:string = output[output.length - 1];
                    var lastOutput2:string = output[output.length - 2];
                    
-                   if(isPangkon(lastOutput) && isWyanjanaPasanganInBelow(lastOutput2)) { 
+                   if(isPangkon(lastOutput) && isWyanjanaPenganggeInBelow(lastOutput2)) { 
                        if(isAlreadyStacked) {
                            // pop last two output
                            output.pop();
@@ -211,16 +211,16 @@ function convert(str:string, isIgnoreSpace:boolean = false, isMurda:boolean = fa
            }
        }
 
-       if(isConsonantsSandhanganPanyigeg(c)) {
+       if(isConsonantsPenganggeTangenan(c)) {
            isAlreadyStacked = false;
-           let isSandhanganPanyigeg = false;
+           let isPenganggeTangenan = false;
 
            if(i - 1 >= 0 && i + 1 < length) {
                var cBefore = str[i - 1];
                var cAfter = str[i + 1];
 
                if(isVowels(cBefore) && !isVowels(cAfter)) {
-                   isSandhanganPanyigeg = true;
+                   isPenganggeTangenan = true;
                }
            }
 
@@ -228,11 +228,11 @@ function convert(str:string, isIgnoreSpace:boolean = false, isMurda:boolean = fa
                var cBefore = str[i - 1];
 
                if(isVowels(cBefore)) {
-                   isSandhanganPanyigeg = true;
+                   isPenganggeTangenan = true;
                }
            }
 
-           if(isSandhanganPanyigeg) {
+           if(isPenganggeTangenan) {
                // remove pangkon if exist
                if(output.length - 1 >= 0) {
                    var lastOutput:string = output[output.length - 1];   
@@ -242,32 +242,32 @@ function convert(str:string, isIgnoreSpace:boolean = false, isMurda:boolean = fa
                    }
                }
 
-               output.push(sandhanganPanyigeg[c]);
+               output.push(penganggeTangenan[c]);
                continue;
            }
        }
        
-       if(isConsonantsSandhanganWyanjana(c)) {
+       if(isConsonantsPenganggeArdhaswara(c)) {
            isAlreadyStacked = false;
-           let isSandhanganWyanjana = false;
+           let isPenganggeArdhaswara = false;
 
            if(i - 2 >= 0) {
                var cBefore = str[i - 2] + str[i - 1];
 
-               if(isConsonants(cBefore) && !isSandhanganPanyigeg(output[output.length - 1])) {
-                   isSandhanganWyanjana = true;
+               if(isConsonants(cBefore) && !isPenganggeTangenan(output[output.length - 1])) {
+                   isPenganggeArdhaswara = true;
                }
            }
 
            if(i - 1 >= 0) {
                var cBefore = str[i - 1];
 
-               if(isConsonants(cBefore) && !isSandhanganPanyigeg(output[output.length - 1])) {
-                   isSandhanganWyanjana = true;
+               if(isConsonants(cBefore) && !isPenganggeTangenan(output[output.length - 1])) {
+                   isPenganggeArdhaswara = true;
                }
            }
 
-           if(isSandhanganWyanjana) {
+           if(isPenganggeArdhaswara) {
                // remove pangkon if exist
                if(output.length - 1 >= 0) {
                    var lastOutput:string = output[output.length - 1];   
@@ -277,7 +277,7 @@ function convert(str:string, isIgnoreSpace:boolean = false, isMurda:boolean = fa
                    }
                }
 
-               output.push(sandhanganWyanjana[c]);
+               output.push(penganggeArdhaswara[c]);
                continue;
            }
        }
@@ -292,7 +292,7 @@ function convert(str:string, isIgnoreSpace:boolean = false, isMurda:boolean = fa
                var lastOutput:string = output[output.length - 1];
                var lastOutput2:string = output[output.length - 2];
                
-               if(isPangkon(lastOutput) && isWyanjanaPasanganInBelow(lastOutput2)) { 
+               if(isPangkon(lastOutput) && isWyanjanaPenganggeInBelow(lastOutput2)) { 
                    if(isAlreadyStacked) {
                        output.pop();
                        output.pop();
@@ -415,10 +415,10 @@ function convert(str:string, isIgnoreSpace:boolean = false, isMurda:boolean = fa
                    }
                }
 
-               output.push(sandhanganSwara[c]);
+               output.push(pengaggeSwara[c]);
            } else {
                output.push(wyanjana['h']);
-               output.push(sandhanganSwara[c]);
+               output.push(pengaggeSwara[c]);
            }
 
            // isDiphthong
@@ -426,33 +426,33 @@ function convert(str:string, isIgnoreSpace:boolean = false, isMurda:boolean = fa
                var c2 = str[i + 1];
 
                if(isVowelsA(c) && isVowelsA(c2)) {
-                   output.push(sandhanganSwara['aa']);
+                   output.push(pengaggeSwara['aa']);
                    i++;
                    continue;
                }
 
                if(isVowelsA(c) && isVowelsWulu(c2)) {
-                   output.push(sandhanganSwara['ai']);
+                   output.push(pengaggeSwara['ai']);
                    i++;
                    continue;
                }
 
                if(isVowelsA(c) && isVowelsSuku(c2)) {
-                   output.push(sandhanganSwara['au']);
+                   output.push(pengaggeSwara['au']);
                    i++;
                    continue;
                }
 
                if(isVowelsWulu(c) && isVowelsWulu(c2)) {
                    output.pop();
-                   output.push(sandhanganSwara['ii']);
+                   output.push(pengaggeSwara['ii']);
                    i++;
                    continue;
                }
                
                if (isVowelsSuku(c) && isVowelsSuku(c2)) {
                    output.pop();
-                   output.push(sandhanganSwara['uu']);
+                   output.push(pengaggeSwara['uu']);
                    i++;
                    continue;
                }
@@ -461,14 +461,14 @@ function convert(str:string, isIgnoreSpace:boolean = false, isMurda:boolean = fa
            continue;
        }
        
-       if(isCharactersPada(c)) {
+       if(isCharactersCecirenpepaosan(c)) {
            isAlreadyStacked = false;
 
            if(isIgnoreSpace && c === ' ') {
                continue;
            }
 
-           output.push(pada[c]);
+           output.push(cecirenpepaosan[c]);
            continue;
        }
        
@@ -480,17 +480,17 @@ function convert(str:string, isIgnoreSpace:boolean = false, isMurda:boolean = fa
 
 function isWyanjana(key:string) { return Object.values(wyanjana).includes(key); }
 
-function isWyanjanaPasanganInRight(wyanjana:string):boolean { 
+function isWyanjanaPenganggeInRight(wyanjana:string):boolean { 
    return wyanjana === 'ꦥ' || wyanjana === 'ꦥ꦳' || wyanjana === 'ꦲ' || wyanjana === 'ꦏ꧀ꦱ' || wyanjana === 'ꦰ' || wyanjana === 'ꦱ' || wyanjana === 'ꦦ'; 
 }
 
-function isWyanjanaPasanganInBelow(wyanjana:string):boolean { 
-   return isWyanjana(wyanjana) && !isWyanjanaPasanganInRight(wyanjana); 
+function isWyanjanaPenganggeInBelow(wyanjana:string):boolean { 
+   return isWyanjana(wyanjana) && !isWyanjanaPenganggeInRight(wyanjana); 
 }
 
-function isSandhanganWyanjana(key:string):boolean { return Object.values(sandhanganWyanjana).includes(key); }
+function isPenganggeArdhaswara(key:string):boolean { return Object.values(penganggeArdhaswara).includes(key); }
 
-function isSandhanganPanyigeg(key:string):boolean { return Object.values(sandhanganPanyigeg).includes(key); }
+function isPenganggeTangenan(key:string):boolean { return Object.values(penganggeTangenan).includes(key); }
 
 function isConsonants(s:string):boolean { 
    return Object.prototype.hasOwnProperty.call(wyanjana, s.toLowerCase()); 
@@ -500,24 +500,24 @@ function isConsonantsMurda(s:string):boolean {
    return Object.prototype.hasOwnProperty.call(murdaConsonants, s.toLowerCase()); 
 }
 
-function isConsonantsSandhanganPanyigeg(s:string):boolean {
-   return Object.prototype.hasOwnProperty.call(sandhanganPanyigeg, s.toLowerCase());
+function isConsonantsPenganggeTangenan(s:string):boolean {
+   return Object.prototype.hasOwnProperty.call(penganggeTangenan, s.toLowerCase());
 }
 
-function isConsonantsSandhanganWyanjana(s:string):boolean {
-   return Object.prototype.hasOwnProperty.call(sandhanganWyanjana, s.toLowerCase());
+function isConsonantsPenganggeArdhaswara(s:string):boolean {
+   return Object.prototype.hasOwnProperty.call(penganggeArdhaswara, s.toLowerCase());
 }
 
 function isVowels(s:string):boolean { 
-   return Object.prototype.hasOwnProperty.call(sandhanganSwara, s); 
+   return Object.prototype.hasOwnProperty.call(pengaggeSwara, s); 
 }
 
 function isVowelsSwara(s:string):boolean { 
    return Object.prototype.hasOwnProperty.call(swara, s); 
 }
 
-function isCharactersPada(s:string):boolean {
-   return Object.prototype.hasOwnProperty.call(pada, s);
+function isCharactersCecirenpepaosan(s:string):boolean {
+   return Object.prototype.hasOwnProperty.call(cecirenpepaosan, s);
 }
 
 function isVowelsA(s:string):boolean {

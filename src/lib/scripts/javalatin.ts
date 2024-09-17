@@ -53,7 +53,7 @@ const swara:{ [id: string]: string; }  = {
 }
 
 // diacritics swara
-const sandhanganSwara:{ [id: string]: string; }  = {
+const penganggeSwara:{ [id: string]: string; }  = {
     'ᬶ':'i',        // i
     'ᬸ':'u',        // u
     'ᭂ':'ê',        // ê
@@ -66,7 +66,7 @@ const sandhanganSwara:{ [id: string]: string; }  = {
 }
 
 // diacritics swara
-const sandhanganWyanjana:{ [id: string]: string; }  = {
+const penganggeArdhaswara:{ [id: string]: string; }  = {
     '᭄ᬭ':'r',       // guwung
     'ᬺ':'rě',       // guwung maclek
     '᭄ᬬ':'y',       // nania
@@ -74,7 +74,7 @@ const sandhanganWyanjana:{ [id: string]: string; }  = {
     '᭄ᬯ':'w',       // suku kembung
 }
 
-const sandhanganPanyigeg:{ [id: string]: string; }  = {
+const penganggeTangenan:{ [id: string]: string; }  = {
     'ᬃ':'r',        // layar (r)
     'ᬂ':'ng',       // cecak (ng)
     'ᬄ':'h',        // wigyan (h)
@@ -83,7 +83,7 @@ const sandhanganPanyigeg:{ [id: string]: string; }  = {
 }
 
 // punctuations
-const pada:{ [id: string]: string; }  = {
+const cecirenpepaosan:{ [id: string]: string; }  = {
     '​':' ',          // zero width non joiner
     '᭚ ':'||',         // panten
     '᭛':'',         // pemati
@@ -111,7 +111,7 @@ function convert(str:string):string {
     for (let i = 0; i < length; i++) {
         var c:string = str[i];
 
-        if(isPangkon(c)) {
+        if(isAdegadeg(c)) {
             if(output.length - 1 >= 0 && output[output.length - 1] === 'a') {
                 output.pop();
                 continue;
@@ -130,11 +130,11 @@ function convert(str:string):string {
             }
         }
 
-        if(isSandhanganWyanjana(c)) {
+        if(isPenganggeArdhaswara(c)) {
             if(output.length - 1 >= 0 && output[output.length - 1] === 'a') {
                 output.pop();
             }
-            output.push(sandhanganWyanjana[c]); 
+            output.push(penganggeArdhaswara[c]); 
             if(isCakraKeret(c)) {
                 output.push('ê');
             } else {
@@ -143,25 +143,25 @@ function convert(str:string):string {
             continue;
         } 
         
-        if(isSandhanganSwara(c)) {
+        if(isPenganggeSwara(c)) {
             if(i - 1 >= 0) {
-                if(isWyanjana(str[i - 1]) || (isSandhanganWyanjana(str[i - 1]) && !isCakraKeret(str[i - 1]))) {
+                if(isWyanjana(str[i - 1]) || (isPenganggeArdhaswara(str[i - 1]) && !isCakraKeret(str[i - 1]))) {
                     if(output.length - 1 >= 0 && output[output.length - 1] === 'a') {
                         output.pop();
                     }
 
-                    output.push(sandhanganSwara[c]);
+                    output.push(penganggeSwara[c]);
                     continue;
                 }
 
                 if(isCecakTelu(str[i - 1])) {
                     if(i - 2 >= 0) {
-                        if(isWyanjana(str[i - 2]) || (isSandhanganWyanjana(str[i - 2]) && !isCakraKeret(str[i - 2]))) {
+                        if(isWyanjana(str[i - 2]) || (isPenganggeArdhaswara(str[i - 2]) && !isCakraKeret(str[i - 2]))) {
                             if(output.length - 1 >= 0 && output[output.length - 1] === 'a') {
                                 output.pop();
                             }
         
-                            output.push(sandhanganSwara[c]);
+                            output.push(penganggeSwara[c]);
                             continue;
                         }
                     }
@@ -204,8 +204,8 @@ function convert(str:string):string {
             }
         }
         
-        if(isSandhanganPanyigeg(c)) {
-            output.push(sandhanganPanyigeg[c]);
+        if(isPenganggeTangenan(c)) {
+            output.push(penganggeTangenan[c]);
             continue;
         }
 
@@ -238,8 +238,8 @@ function convert(str:string):string {
             continue;
         }
         
-        if(isPada(c)) {
-            output.push(pada[c]);
+        if(isCecirenpepaosan(c)) {
+            output.push(cecirenpepaosan[c]);
             continue;
         }
             
@@ -255,13 +255,13 @@ function isRekan(key:string):boolean { return Object.prototype.hasOwnProperty.ca
 
 function isSwara(key:string):boolean { return Object.prototype.hasOwnProperty.call(swara, key); }
 
-function isSandhanganSwara(key:string):boolean { return Object.prototype.hasOwnProperty.call(sandhanganSwara, key); }
+function isPenganggeSwara(key:string):boolean { return Object.prototype.hasOwnProperty.call(penganggeSwara, key); }
 
-function isSandhanganWyanjana(key:string):boolean { return Object.prototype.hasOwnProperty.call(sandhanganWyanjana, key); }
+function isPenganggeArdhaswara(key:string):boolean { return Object.prototype.hasOwnProperty.call(penganggeArdhaswara, key); }
 
-function isSandhanganPanyigeg(key:string):boolean { return Object.prototype.hasOwnProperty.call(sandhanganPanyigeg, key); }
+function isPenganggeTangenan(key:string):boolean { return Object.prototype.hasOwnProperty.call(penganggeTangenan, key); }
 
-function isPada(key:string):boolean { return Object.prototype.hasOwnProperty.call(pada, key); }
+function isCecirenpepaosan(key:string):boolean { return Object.prototype.hasOwnProperty.call(cecirenpepaosan, key); }
 
 function isPaCeret(s:string):boolean { return s === "ꦉ"; }
 
@@ -269,7 +269,7 @@ function isNgaLelet(s:string):boolean { return s === "ᬍ"; }
 
 function isNgaLeletRaswadi(s:string):boolean { return s === "ᬎ"; }
 
-function isPangkon(s:string):boolean { return s === "᭄"; }
+function isAdegadeg(s:string):boolean { return s === "᭄"; }
 
 function isCakraKeret(s:string):boolean { return s === "ᬺ" }
 
