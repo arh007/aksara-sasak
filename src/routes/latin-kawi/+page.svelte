@@ -7,15 +7,15 @@ import Converter from "$lib/components/Converter.svelte";
 <SvelteSeo
     title="Transliterasi Aksara Sasak | Latin-Kawi"
     description="Alat transliterasi sederhana untuk mengalihkan/mengubah/mengkonversi teks aksara Latin menjadi aksara Kawi."
-    canonical="https://arh007.github.io/lapushamzanwadi/latin-kawi"
+    canonical="https://arh007.github.io/transliterasi-sasak/latin-kawi"
     keywords="alat, transliterasi, konversi, alih, aksara, kawi, latin"
     openGraph={{
         title: "Transliterasi Aksara Sasak | Latin-Kawi",
         description: "Alat transliterasi sederhana untuk mengalihkan/mengubah/mengkonversi teks aksara Latin menjadi aksara Kawi.",
-        url: "https://arh007.github.io/lapushamzanwadi/latin-kawi",
+        url: "https://arh007.github.io/transliterasi-sasak/latin-kawi",
         type: "website",
         images: [{
-            url: "https://arh007.github.io/lapushamzanwadi/alih-aksara-screenshot.png",
+            url: "https://arh007.github.io/transliterasi-sasak/aksara-sasak.png",
           },],
         site_name: "Transliterasi Aksara Sasak",
       }}
@@ -23,7 +23,7 @@ import Converter from "$lib/components/Converter.svelte";
         card: "summary_large_image",
         title: "Transliterasi Aksara Sasak | Latin-Kawi",
         description: "Alat transliterasi sederhana untuk mengalihkan/mengubah/mengkonversi teks aksara Latin menjadi aksara Kawi.",
-        image: "https://arh007.github.io/lapushamzanwadi/alih-aksara-screenshot.png",
+        image: "https://arh007.github.io/transliterasi-sasak/aksara-sasak.png",
       }}
 />
     

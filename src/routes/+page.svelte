@@ -18,7 +18,7 @@ import { base } from '$app/paths';
     url: "https://arh007.github.io/lapushamzanwadi",
     type: "website",
     images: [{
-        url: "https://arh007.github.io/lapushamzanwadi/alih-aksara-screenshot.png",
+        url: "https://arh007.github.io/transliterasi-sasak/aksara-sasak.png",
       },],
     site_name: "Transliterasi Aksara Sasak",
   }}
@@ -26,7 +26,7 @@ import { base } from '$app/paths';
     card: "summary_large_image",
     title: "Transliterasi Aksara Sasak",
     description: "Alat transliterasi sederhana untuk mengalihkan/mengubah/mengkonversi teks aksara Sasak ke bentuk aksara lain ataupun sebaliknya.",
-    image: "https://arh007.github.io/lapushamzanwadi/alih-aksara-screenshot.png",
+    image: "https://arh007.github.io/transliterasi-sasak/aksara-sasak.png",
   }}
 />
 
