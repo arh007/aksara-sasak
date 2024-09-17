@@ -7,15 +7,15 @@ import Converter from "$lib/components/Converter.svelte";
 <SvelteSeo
     title="Transliterasi | Sasak-Latin"
     description="Alat transliterasi sederhana untuk mengalihkan/mengubah/mengkonversi teks aksara Sasak menjadi aksara Latin."
-    canonical="https://arh007.github.io/transliterasi-sasak/sasak-latin"
+    canonical="https://aksarasasak.id/transliterasi-sasak/sasak-latin"
     keywords="alat, transliterasi, konversi, alih, aksara, sasak, latin"
     openGraph={{
         title: "Transliterasi | Sasak-Latin",
         description: "Alat transliterasi sederhana untuk mengalihkan/mengubah/mengkonversi teks aksara Sasak menjadi aksara Latin.",
-        url: "https://arh007.github.io/transliterasi-sasak/sasak-latin",
+        url: "https://aksarasasak.id/transliterasi-sasak/sasak-latin",
         type: "website",
         images: [{
-            url: "https://arh007.github.io/transliterasi-sasak/aksara-sasak.png",
+            url: "https://aksarasasak.id/transliterasi-sasak/aksara-sasak.png",
           },],
         site_name: "Transliterasi Aksara Sasak",
       }}
@@ -23,7 +23,7 @@ import Converter from "$lib/components/Converter.svelte";
         card: "summary_large_image",
         title: "Transliterasi | Sasak-Latin",
         description: "Alat transliterasi sederhana untuk mengalihkan/mengubah/mengkonversi teks aksara Sasak menjadi aksara Latin.",
-        image: "https://arh007.github.io/transliterasi-sasak/aksara-sasak.png",
+        image: "https://aksarasasak.id/transliterasi-sasak/aksara-sasak.png",
       }}
 />
     
