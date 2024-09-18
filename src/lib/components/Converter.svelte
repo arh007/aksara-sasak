@@ -1,10 +1,10 @@
 <script lang="ts">
 import { ConverterMethod } from "$lib/scripts/global";
-import { convert as latinJavaConvert } from "$lib/scripts/latinjava";
+import { convert as latinSasakConvert } from "$lib/scripts/latinsasak";
 import { convert as latinKawiConvert } from "$lib/scripts/latinkawi";
-import { convert as javaLatinConvert } from "$lib/scripts/javalatin";
-import { convert as javaKawiConvert } from "$lib/scripts/javakawi";
-import { javaDefaultKeyboard, javaCapslockKeyboard } from "$lib/scripts/javakeyboard";
+import { convert as sasakLatinConvert } from "$lib/scripts/sasaklatin";
+import { convert as sasakKawiConvert } from "$lib/scripts/sasakkawi";
+import { sasakDefaultKeyboard, sasakCapslockKeyboard } from "$lib/scripts/sasakkeyboard";
 	import WidgetFeedback from "./WidgetFeedback.svelte";
 	import WidgetRecomendation from "./WidgetRecomendation.svelte";
 
@@ -20,13 +20,13 @@ let isVirtualKeyboardActive:boolean = false;
 let isCapslock:boolean = false;
 
 const specialCharacters = ['Ê', 'ê', 'ā', 'ī', 'ū', 'ḍ', 'ḍh', 'ṣ', 'ś', 'ṭ', 'ṭh', 'ṇ', 'ñ', 'ŋ'];
-let javaKeyboard = isCapslock ? javaCapslockKeyboard : javaDefaultKeyboard;
-var javaKeyboardDictionary:{ [id: string]: string; } = { };
-javaDefaultKeyboard.forEach(x => {
-    javaKeyboardDictionary[x[0]] = x[1];
+let sasakKeyboard = isCapslock ? sasakCapslockKeyboard : sasakDefaultKeyboard;
+var sasakKeyboardDictionary:{ [id: string]: string; } = { };
+sasakDefaultKeyboard.forEach(x => {
+    sasakKeyboardDictionary[x[0]] = x[1];
 });
-javaCapslockKeyboard.forEach(x => {
-    javaKeyboardDictionary[x[0]] = x[1];
+sasakCapslockKeyboard.forEach(x => {
+    sasakKeyboardDictionary[x[0]] = x[1];
 });
 
 
@@ -38,11 +38,11 @@ export let method:ConverterMethod = ConverterMethod.None;
 function inputTitle():string
 {
     switch(method) { 
-        case ConverterMethod.LatinToJava:
+        case ConverterMethod.LatinToSasak:
         case ConverterMethod.LatinToKawi:
             return "Aksara Latin"
-        case ConverterMethod.JavaToKawi: 
-        case ConverterMethod.JavaToLatin: 
+        case ConverterMethod.SasakToKawi: 
+        case ConverterMethod.SasakToLatin: 
             return "Aksara Sasak"
     } 
 
@@ -52,11 +52,11 @@ function inputTitle():string
 function outputTitle():string
 {
     switch(method) { 
-        case ConverterMethod.LatinToJava: 
+        case ConverterMethod.LatinToSasak: 
             return "Aksara Sasak";
-        case ConverterMethod.JavaToLatin: 
+        case ConverterMethod.SasakToLatin: 
             return "Aksara Latin";
-        case ConverterMethod.JavaToKawi:
+        case ConverterMethod.SasakToKawi:
         case ConverterMethod.LatinToKawi:
             return "Aksara Kawi";
     }
@@ -67,9 +67,9 @@ function outputTitle():string
 function onInputUpdate()
 {
     switch(method) { 
-        case ConverterMethod.LatinToJava: 
+        case ConverterMethod.LatinToSasak: 
         { 
-            output = latinJavaConvert(input, isIgnoreSpace, isMurda, isDiphtong);
+            output = latinSasakConvert(input, isIgnoreSpace, isMurda, isDiphtong);
             break; 
         }
         case ConverterMethod.LatinToKawi: 
@@ -77,14 +77,14 @@ function onInputUpdate()
             output = latinKawiConvert(input, isIgnoreSpace);
             break; 
         }
-        case ConverterMethod.JavaToLatin: 
+        case ConverterMethod.SasakToLatin: 
         {
-            output = javaLatinConvert(input) 
+            output = sasakLatinConvert(input) 
             break; 
         }
-        case ConverterMethod.JavaToKawi: 
+        case ConverterMethod.SasakToKawi: 
         {
-            output = javaKawiConvert(input) 
+            output = sasakKawiConvert(input) 
             break; 
         }
     } 
@@ -93,7 +93,7 @@ function onInputUpdate()
 function onInputKeyDown(e:KeyboardEvent) {
     if (e.ctrlKey) return;
 
-    if (method == ConverterMethod.LatinToJava || method == ConverterMethod.LatinToKawi) 
+    if (method == ConverterMethod.LatinToSasak || method == ConverterMethod.LatinToKawi) 
     {
         if(isPepetTypeMode == false) return;
 
@@ -115,16 +115,16 @@ function onInputKeyDown(e:KeyboardEvent) {
         return;
     }
 
-    if (method == ConverterMethod.JavaToLatin || method == ConverterMethod.JavaToKawi) 
+    if (method == ConverterMethod.SasakToLatin || method == ConverterMethod.SasakToKawi) 
     {
         if(isVirtualKeyboardActive == false) return;
 
         isCapslock = e.getModifierState("CapsLock");
-        javaKeyboard = isCapslock ? javaCapslockKeyboard : javaDefaultKeyboard;
+        sasakKeyboard = isCapslock ? sasakCapslockKeyboard : sasakDefaultKeyboard;
 
-        if (javaKeyboardDictionary.hasOwnProperty(e.key))
+        if (sasakKeyboardDictionary.hasOwnProperty(e.key))
         {
-            insertToTextarea(javaKeyboardDictionary[e.key]);
+            insertToTextarea(sasakKeyboardDictionary[e.key]);
             onInputUpdate();
             e.preventDefault();
             e.stopPropagation();
@@ -138,13 +138,13 @@ function onDocumentKeyDown(e:KeyboardEvent) {
     if (e.key == "CapsLock")
     {
         isCapslock = e.getModifierState("CapsLock");
-        javaKeyboard = isCapslock ? javaCapslockKeyboard : javaDefaultKeyboard;
+        sasakKeyboard = isCapslock ? sasakCapslockKeyboard : sasakDefaultKeyboard;
     }
 
     if (e.key == "Shift")
     {
         isCapslock = e.getModifierState("CapsLock") ? !e.getModifierState("Shift") : e.getModifierState("Shift");
-        javaKeyboard = isCapslock ? javaCapslockKeyboard : javaDefaultKeyboard;
+        sasakKeyboard = isCapslock ? sasakCapslockKeyboard : sasakDefaultKeyboard;
     }
 }
 
@@ -152,7 +152,7 @@ function onDocumentKeyUp(e:KeyboardEvent) {
     if (e.key == "Shift")
     {
         isCapslock = e.getModifierState("CapsLock") ? !e.getModifierState("Shift") : e.getModifierState("Shift");
-        javaKeyboard = isCapslock ? javaCapslockKeyboard : javaDefaultKeyboard;
+        sasakKeyboard = isCapslock ? sasakCapslockKeyboard : sasakDefaultKeyboard;
     }
 }
 
@@ -184,7 +184,7 @@ function onPressBackspace() {
 function toggleCapslock()
 {
     isCapslock = !isCapslock;
-    javaKeyboard = isCapslock ? javaCapslockKeyboard : javaDefaultKeyboard;
+    sasakKeyboard = isCapslock ? sasakCapslockKeyboard : sasakDefaultKeyboard;
     textareaEl.focus();
     textareaEl.setSelectionRange(textareaEl.selectionStart, textareaEl.selectionEnd);
 }
@@ -223,7 +223,7 @@ function onPointerLeaveCopyButton()
             <h4>{ inputTitle() }</h4>
             <textarea bind:this={ textareaEl } bind:value={input} on:input={ onInputUpdate } on:keydown={ onInputKeyDown }></textarea>
     
-            {#if method == ConverterMethod.LatinToJava || method == ConverterMethod.LatinToKawi }
+            {#if method == ConverterMethod.LatinToSasak || method == ConverterMethod.LatinToKawi }
             <div style="margin-block-start: 1em;">
                 <label style="margin-right: .5em;">
                     <input type="checkbox" role="switch" bind:checked={ isPepetTypeMode }>
@@ -235,7 +235,7 @@ function onPointerLeaveCopyButton()
                     Abaikan Spasi
                 </label>
     
-                {#if method == ConverterMethod.LatinToJava }
+                {#if method == ConverterMethod.LatinToSasak }
                 <label style="margin-right: .5em;">
                     <input type="checkbox" role="switch" bind:checked={ isMurda } on:change={ onInputUpdate }>
                     Murda
@@ -256,7 +256,7 @@ function onPointerLeaveCopyButton()
             </div>
             {/if}
     
-            {#if method == ConverterMethod.JavaToLatin || method == ConverterMethod.JavaToKawi }
+            {#if method == ConverterMethod.SasakToLatin || method == ConverterMethod.SasakToKawi }
             <div style="margin-block-start: 1em;">
                 <label style="margin-right: .5em;">
                     <input type="checkbox" role="switch" bind:checked={ isVirtualKeyboardActive }>
@@ -265,7 +265,7 @@ function onPointerLeaveCopyButton()
             </div>
                 {#if isVirtualKeyboardActive }
                 <div class="virtual-keyboard layout">
-                    {#each javaKeyboard as key, i}<button class="button outline icon-only" on:click= { () => { insertToTextarea(key[1]); onInputUpdate(); } }>{key[1]}</button>{#if i == 12 || i == 25}<br/>{/if}{#if i == 36}<button class="button outline icon-only material-symbols-outlined" style="width: 12%;font-size: 1.25em;" on:click= { () => { insertToTextarea('\n'); onInputUpdate(); } }>keyboard_return</button><br/><button class="button activatable outline icon-only material-symbols-outlined" class:active={ isCapslock } style="width: 12%;font-size: 1.25em;" on:dblclick={ toggleCapslock } on:click={ toggleCapslock }>keyboard_capslock</button>{/if}{/each}<button class="button outline icon-only material-symbols-outlined" style="width: 12%;font-size: 1.25em;" on:click={ () => { onPressBackspace(); onInputUpdate(); } }>backspace</button><br/><button class="button outline icon-only material-symbols-outlined" style="width: 50%;font-size: 1.25em;" on:click= { () => { insertToTextarea(' '); onInputUpdate(); } }>space_bar</button>
+                    {#each sasakKeyboard as key, i}<button class="button outline icon-only" on:click= { () => { insertToTextarea(key[1]); onInputUpdate(); } }>{key[1]}</button>{#if i == 12 || i == 25}<br/>{/if}{#if i == 36}<button class="button outline icon-only material-symbols-outlined" style="width: 12%;font-size: 1.25em;" on:click= { () => { insertToTextarea('\n'); onInputUpdate(); } }>keyboard_return</button><br/><button class="button activatable outline icon-only material-symbols-outlined" class:active={ isCapslock } style="width: 12%;font-size: 1.25em;" on:dblclick={ toggleCapslock } on:click={ toggleCapslock }>keyboard_capslock</button>{/if}{/each}<button class="button outline icon-only material-symbols-outlined" style="width: 12%;font-size: 1.25em;" on:click={ () => { onPressBackspace(); onInputUpdate(); } }>backspace</button><br/><button class="button outline icon-only material-symbols-outlined" style="width: 50%;font-size: 1.25em;" on:click= { () => { insertToTextarea(' '); onInputUpdate(); } }>space_bar</button>
                 </div>
                 {/if}
             {/if}
@@ -284,14 +284,14 @@ function onPointerLeaveCopyButton()
     </div>
 </section>
 
-{#if method == ConverterMethod.LatinToJava || method == ConverterMethod.LatinToKawi}
+{#if method == ConverterMethod.LatinToSasak || method == ConverterMethod.LatinToKawi}
 <section class="row">
     <div class="col">
         <h4>Keterangan Penggunaan</h4>
         <ul class="list-unstyled">
             <li>
                 <h5>Mode Ketik Pepet</h5>
-                {#if method == ConverterMethod.LatinToJava }
+                {#if method == ConverterMethod.LatinToSasak }
                 <p>Saat diaktifkan, tombol x pada keyboard akan digantikan fungsinya untuk mengetikkan huruf ê yang merepresentasikan pepet (ᭂ) dalam aksara Sasak. Huruf ê sendiri menghasilkan bunyi seperti huruf e pada kata "enam".</p>
                 {/if}
                 {#if method == ConverterMethod.LatinToKawi}
@@ -302,7 +302,7 @@ function onPointerLeaveCopyButton()
                 <h5>Abaikan Spasi</h5>
                 <p>Saat diaktifkan, proses konversi akan mengabaikan spasi dari kolom masukan. Sebaliknya jika dinonaktifkan, spasi akan dikonversikan menjadi <i>zero width space</i> alias spasi yang tidak terlihat.</p>                
             </li>
-            {#if method == ConverterMethod.LatinToJava }
+            {#if method == ConverterMethod.LatinToSasak }
             <li>
                 <h5>Murda</h5>
                 <p>Saat diaktifkan, aksara pertama dari aksara-aksara ᬦ, ᬓ, ᬢ, ᬲ, ᬧ, ᬜ, ᬕ, ᬩ akan diubah ke dalam bentuk aksara murda-nya ᬡ, ᬔ, ᬣ, ᬰ, ᬨ, ᬡ, ᬖ, ᬪ.

@@ -1,9 +1,9 @@
 enum ConverterMethod {
     None = 0,
-    LatinToJava ,
+    LatinToSasak ,
     LatinToKawi,
-    JavaToLatin,
-    JavaToKawi
+    SasakToLatin,
+    SasakToKawi
 }
 
 export { ConverterMethod }

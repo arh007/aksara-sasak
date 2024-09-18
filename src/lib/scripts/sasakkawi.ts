@@ -101,7 +101,7 @@ const digits:{ [id: string]: string; }  = {
 	'꧙' : '𑽙',       //KAWI DIGIT NINE
 }
 
-const javaKawiDictionary:{ [id: string]: string; } = Object.assign(signs, independentVowels, consonants, dependentVowelSigns, viramas, punctuations, digits);
+const sasakKawiDictionary:{ [id: string]: string; } = Object.assign(signs, independentVowels, consonants, dependentVowelSigns, viramas, punctuations, digits);
 
 const whitespaces = new Set([" ", "\u200b", "\t", "\n"]);
 
@@ -140,16 +140,16 @@ function convert(input:string):string {
         {
             var cc = c + input[i + 1];
 
-            if (javaKawiDictionary.hasOwnProperty(cc))
+            if (sasakKawiDictionary.hasOwnProperty(cc))
             {
-                result.push(javaKawiDictionary[cc]);
+                result.push(sasakKawiDictionary[cc]);
                 i++;
                 continue;
             }
         }
         
-        if (javaKawiDictionary.hasOwnProperty(c))
-            result.push(javaKawiDictionary[c]);
+        if (sasakKawiDictionary.hasOwnProperty(c))
+            result.push(sasakKawiDictionary[c]);
         else
             result.push(c);
 	}

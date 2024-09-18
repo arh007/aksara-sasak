@@ -1,10 +1,10 @@
-import { convert as javaKawiConvert } from "$lib/scripts/javakawi";
-import { convert as latinJavaConvert } from "$lib/scripts/latinjava";
+import { convert as sasakKawiConvert } from "$lib/scripts/sasakkawi";
+import { convert as latinSasakConvert } from "$lib/scripts/latinsasak";
 
 function convert(text : string, isIgnoreSpace : boolean = false) : string 
 {
-	var javaText = latinJavaConvert(text, isIgnoreSpace);
-	return javaKawiConvert(javaText);
+	var javaText = latinSasakConvert(text, isIgnoreSpace);
+	return sasakKawiConvert(javaText);
 }
 
 export { convert };

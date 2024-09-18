@@ -1,4 +1,4 @@
-const javaDefaultKeyboard = [
+const sasakDefaultKeyboard = [
     ['\u0060','꧇'],
     ['1','᭑'],
     ['2','᭒'],
@@ -49,7 +49,7 @@ const javaDefaultKeyboard = [
 
 ];
 
-const javaCapslockKeyboard = [
+const sasakCapslockKeyboard = [
     ['~','꧊'],
     ['!','ꦵ'],
     ['@','ꧏ'],
@@ -99,4 +99,4 @@ const javaCapslockKeyboard = [
     ['?','ᬇ']
 ];
 
-export { javaDefaultKeyboard, javaCapslockKeyboard }
+export { sasakDefaultKeyboard, sasakCapslockKeyboard }
