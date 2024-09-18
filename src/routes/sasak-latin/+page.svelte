@@ -27,4 +27,4 @@ import Converter from "$lib/components/Converter.svelte";
       }}
 />
     
-<Converter method = { ConverterMethod.JavaToLatin } />
+<Converter method = { ConverterMethod.SasakToLatin } />

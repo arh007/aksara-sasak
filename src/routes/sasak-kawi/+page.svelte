@@ -27,4 +27,4 @@ import Converter from "$lib/components/Converter.svelte";
       }}
 />
     
-<Converter method = { ConverterMethod.JavaToKawi } />
+<Converter method = { ConverterMethod.SasakToKawi } />
