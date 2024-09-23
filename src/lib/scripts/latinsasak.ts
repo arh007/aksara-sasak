@@ -69,13 +69,13 @@ const murdaConsonants:{ [id: string]: string; } = {
 }
 
 const penganggeArdhaswara:{ [id: string]: string; } = {
-    r: '᭄',   // cakra
+    r: '᭄ᬭ',   // cakra
     ṛ: 'ᬺ',   // cakra keret
     y: '᭄ᬬ',   // pengkal
     l: '᭄ᬮ',   
     w: '᭄ᬯ', 
-    rê:'ᬋ', //pa cêrêk
-    rě:'ᬋ', //pa cěrěk
+    rê:'ᬺ', //guwung maclek
+    rě:'ᬺ', //guwung maclek
     lê:'ᬍ', //nga lêlêt
     lě:'ᬍ', //nga lělět
     lêu:'ᬎ', //nga lêlêt Raswadi -- archaic
@@ -108,9 +108,9 @@ const pengaggeSwara:{ [id: string]: string; } = {
     e: ' ᬾ',
     è: ' ᬾ',
     é: ' ᬾ',
-    ê: 'ᭂ',
-    ě: 'ᭂ',
-    ĕ: 'ᭂ',
+    ê: ' ᭂ',
+    ě: ' ᭂ',
+    ĕ: ' ᭂ',
     o: 'ᭀ',
     rö:' ᬻ',
     lö:'ᬽ',
