@@ -181,7 +181,7 @@ function convert(str:string, isIgnoreSpace:boolean = false, isMurda:boolean = fa
                    var lastOutput:string = output[output.length - 1];
                    var lastOutput2:string = output[output.length - 2];
                    
-                   if(isPangkon(lastOutput) && isWyanjanaPenganggeInBelow(lastOutput2)) { 
+                   if(isPemati(lastOutput) && isWyanjanaPenganggeInBelow(lastOutput2)) { 
                        if(isAlreadyStacked) {
                            // pop last two output
                            output.pop();
@@ -233,11 +233,11 @@ function convert(str:string, isIgnoreSpace:boolean = false, isMurda:boolean = fa
            }
 
            if(isPenganggeTangenan) {
-               // remove pangkon if exist
+               // remove pemati if exist
                if(output.length - 1 >= 0) {
                    var lastOutput:string = output[output.length - 1];   
 
-                   if(isPangkon(lastOutput)) {
+                   if(isPemati(lastOutput)) {
                        output.pop();
                    }
                }
@@ -268,11 +268,11 @@ function convert(str:string, isIgnoreSpace:boolean = false, isMurda:boolean = fa
            }
 
            if(isPenganggeArdhaswara) {
-               // remove pangkon if exist
+               // remove pemati if exist
                if(output.length - 1 >= 0) {
                    var lastOutput:string = output[output.length - 1];   
 
-                   if(isPangkon(lastOutput)) {
+                   if(isPemati(lastOutput)) {
                        output.pop();
                    }
                }
@@ -292,7 +292,7 @@ function convert(str:string, isIgnoreSpace:boolean = false, isMurda:boolean = fa
                var lastOutput:string = output[output.length - 1];
                var lastOutput2:string = output[output.length - 2];
                
-               if(isPangkon(lastOutput) && isWyanjanaPenganggeInBelow(lastOutput2)) { 
+               if(isPemati(lastOutput) && isWyanjanaPenganggeInBelow(lastOutput2)) { 
                    if(isAlreadyStacked) {
                        output.pop();
                        output.pop();
@@ -383,8 +383,8 @@ function convert(str:string, isIgnoreSpace:boolean = false, isMurda:boolean = fa
                    if(i - 1 >= 0) {
                        var cBefore = str[i - 1];
                        
-                       if(cBefore === 'l' && !isPangkon(lastOutputChar)) {
-                           output.pop(); // pop pangkon
+                       if(cBefore === 'l' && !isPemati(lastOutputChar)) {
+                           output.pop(); // pop pemati
                            output.pop(); // pop aksara la
                            output.push('ᬎ');
                            continue;
@@ -397,7 +397,7 @@ function convert(str:string, isIgnoreSpace:boolean = false, isMurda:boolean = fa
                    
                    // check pa ceret
                    if(cBefore === 'r') {
-                       output.pop(); // pop pangkon
+                       output.pop(); // pop pemati
                        output.pop(); // pop aksara ra
                        output.push('ᬋ');
                        continue;
@@ -406,11 +406,11 @@ function convert(str:string, isIgnoreSpace:boolean = false, isMurda:boolean = fa
            }            
            
            if(i - 1 >= 0 && isConsonants(str[i - 1])) {
-               // check pangkon
+               // check pemati
                if(output.length - 1 >= 0) {
                    var lastOutputChar = output[output.length - 1];
                    
-                   if(isPangkon(lastOutputChar)) {
+                   if(isPemati(lastOutputChar)) {
                        output.pop();
                    }
                }
@@ -544,12 +544,12 @@ function isVowelsTalingTarung(s:string):boolean {
    return s === 'o';
 }
 
-function isPangkon(s:string):boolean {
+function isPemati(s:string):boolean {
    return s === '᭄';
 }
 
 function isCakra(s:string):boolean {
-   return s === '᭄';
+   return s === '᭄ᬭ';
 }
 
 export { convert };
