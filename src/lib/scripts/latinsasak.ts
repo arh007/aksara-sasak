@@ -1,10 +1,11 @@
 const wyanjana:{ [id: string]: string; }  = {
     b: 'ᬩ',       // ba
     c: 'ᬘ',       // ca
+    ch: 'ᬙ',      //cha
     d: 'ᬤ',       // da
     dh:'ᬥ',       // dha
     ḍ: 'ᬟ',       // dha
-    ḍh:'ᬠ',       // dha mahaprana
+    ḍh:'ᬠ',       // ḍha mahaprana
     dz:'ᬤ᭄ᬚ᬴',     // dza rekan
     f: 'ᬧ᬴',      // fa rekan
     g: 'ᬕ',       // ga
@@ -22,7 +23,7 @@ const wyanjana:{ [id: string]: string; }  = {
     nc:'ᬜ᭄ᬘ',       // nca
     nj:'ᬜ᭄ᬚ',       // nja
     ñ: 'ᬜ',       // nya
-    ṇ: 'ᬡ',       // na murda
+    ṇ: 'ᬡ',       // na murda 
     p: 'ᬧ',       // pa
     p̣: 'ᬨ',       // pa murda
     q: 'ᭅ',       // ka sasak
@@ -70,12 +71,12 @@ const murdaConsonants:{ [id: string]: string; } = {
 
 const penganggeArdhaswara:{ [id: string]: string; } = {
     r: '᭄ᬭ',   // cakra
-    ṛ: 'ᬺ',   // cakra keret
+    ṛ: 'ᬺ',  // guwung maclek
+    rê:'ᬺ', //guwung maclek
+    rě:'ᬺ', //guwung maclek
     y: '᭄ᬬ',   // pengkal
     l: '᭄ᬮ',   
     w: '᭄ᬯ', 
-    rê:'ᬺ', //guwung maclek
-    rě:'ᬺ', //guwung maclek
     lê:'ᬍ', //nga lêlêt
     lě:'ᬍ', //nga lělět
     lêu:'ᬎ', //nga lêlêt Raswadi -- archaic
@@ -83,9 +84,9 @@ const penganggeArdhaswara:{ [id: string]: string; } = {
 }
 
 const penganggeTangenan:{ [id: string]: string; } = {
-    r: 'ᬃ',
-    h: 'ᬄ', 
-    ng:'ᬂ',
+    r: 'ᬃ', //layar/SURANG
+    h: 'ᬄ', //wignyan/BISAH
+    ng:'ᬂ', //cecak/CECEK
     ī: 'ᬷ',
     ṁ: 'ᬁ',
     ṃ: 'ᬀ',    
@@ -105,15 +106,18 @@ const pengaggeSwara:{ [id: string]: string; } = {
     u: 'ᬸ',
     uu:'ᬹ',
     ū: 'ᬹ',
-    e: ' ᬾ',
-    è: ' ᬾ',
-    é: ' ᬾ',
+    e: " ᬾ",
+    è: " ᬾ",
+    é: " ᬾ",
     ê: "ᭂ",
     ě: "ᭂ",
     ĕ: "ᭂ",
     o: 'ᭀ',
     rö:' ᬻ',
     lö:'ᬽ',
+    ṛ: 'ᬺ',  //guwung maclek
+    rê:'ᬺ', //guwung maclek
+    rě:'ᬺ', //guwung maclek
 }
 
 const cecirenpepaosan:{ [id: string]: string; } = {
@@ -369,7 +373,7 @@ function convert(str:string, isIgnoreSpace:boolean = false, isMurda:boolean = fa
            }
            
            if(isVowelsPepet(c)) {
-               // check cakra keret
+               // check guwung macelek
                if(output.length - 1 >= 0) {
                    var lastOutputChar = output[output.length - 1];
                    
@@ -379,7 +383,7 @@ function convert(str:string, isIgnoreSpace:boolean = false, isMurda:boolean = fa
                        continue;
                    }
 
-                    // check nga lelet
+                    // check gantungan la
                    if(i - 1 >= 0) {
                        var cBefore = str[i - 1];
                        
@@ -481,7 +485,7 @@ function convert(str:string, isIgnoreSpace:boolean = false, isMurda:boolean = fa
 function isWyanjana(key:string) { return Object.values(wyanjana).includes(key); }
 
 function isWyanjanaPenganggeInRight(wyanjana:string):boolean { 
-   return wyanjana === 'ꦥ' || wyanjana === 'ꦥ꦳' || wyanjana === 'ꦲ' || wyanjana === 'ꦏ꧀ꦱ' || wyanjana === 'ꦰ' || wyanjana === 'ꦱ' || wyanjana === 'ꦦ'; 
+   return wyanjana === 'ᬧ' || wyanjana === 'ᬧ᬴' || wyanjana === 'ᬳ' || wyanjana === 'ᬓ᭄ᬱ' || wyanjana === 'ᬱ' || wyanjana === 'ᬲ' || wyanjana === 'ꦦ'; 
 }
 
 function isWyanjanaPenganggeInBelow(wyanjana:string):boolean { 

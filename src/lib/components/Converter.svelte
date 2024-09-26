@@ -19,7 +19,7 @@ let isDiphtong:boolean = false;
 let isVirtualKeyboardActive:boolean = false;
 let isCapslock:boolean = false;
 
-const specialCharacters = ['Ê', 'ê', 'ā', 'ī', 'ū', 'ḍ', 'ḍh', 'ṣ', 'ś', 'ṭ', 'ṭh', 'ṇ', 'ñ', 'ŋ'];
+const specialCharacters = ['Ê', 'ě', 'ā', 'ī', 'ū', 'ḍ', 'ḍh', 'ṣ', 'ś', 'ṭ', 'ṭh', 'ṇ', 'ñ', 'ŋ', 'ṛ', 'ö', 'rö', 'lö'];
 let sasakKeyboard = isCapslock ? sasakCapslockKeyboard : sasakDefaultKeyboard;
 var sasakKeyboardDictionary:{ [id: string]: string; } = { };
 sasakDefaultKeyboard.forEach(x => {
@@ -318,8 +318,8 @@ function onPointerLeaveCopyButton()
                 <p>Berikut karakter-karakter spesial yang digunakan dalam konverter ini beserta hasil konversinya :</p>
                 <ul style="margin-block-end: 1em">
                     <li>Ê menghasilkan ᬅᭂ (Swara Ê)</li>  
-                    <li>ê menghasilkan  ᬾ (Pepet)</li>
-                    <li>ā menghasilkan ᬵ (Tedung)</li>  
+                    <li>ě menghasilkan  ᬾ (Pěpět)</li>
+                    <li>ā menghasilkan ᬵ (Tědung)</li>  
                     <li>ī menghasilkan ᬷ (Ulu Sari)</li>  
                     <li>ū menghasilkan ᬹ (Suku Ilut)</li>
                     <li>ḍ menghasilkan ᬟ (Dha)</li>  
@@ -331,6 +331,10 @@ function onPointerLeaveCopyButton()
                     <li>ṇ menghasilkan ᬡ (Na Murda)</li> 
                     <li>ñ menghasilkan ᬜ (Nya)</li>
                     <li>ŋ menghasilkan ᬗ (Nga)</li> 
+                    <li>ṛ menghasilkan ᬺ (Guwung macělěk)</li> 
+                    <li>ö menghasilkan ᭃ (Pěpět-tědong)</li> 
+                    <li>lö menghasilkan ᬽ (Gantungan la-pěpět-tědung)</li>
+                    <li>rö menghasilkan ᬻ (Guwung macělěk-tědung)</li> 
                 </ul>
                 <p>Karakter spesial ñ dan ŋ sama dengan ny dan ng dalam bahasa indonesia</p>
             </li>
