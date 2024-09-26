@@ -10,15 +10,15 @@ import { base } from '$app/paths';
 <SvelteSeo
   title="Transliterasi Aksara Sasak"
   description="Alat transliterasi sederhana untuk mengalihkan/mengubah/mengkonversi teks aksara Sasak ke bentuk aksara lain ataupun sebaliknya."
-  canonical="https://aksarasasak.id/aksara-sasak"
+  canonical="https://arh007.github.io/aksara-sasak"
   keywords="alat, transliterasi, konversi, alih, aksara, sasak, latin, kawi"
   openGraph={{
     title: "Transliterasi Aksara Sasak",
     description: "Alat transliterasi sederhana untuk mengalihkan/mengubah/mengkonversi teks aksara Sasak ke bentuk aksara lain ataupun sebaliknya.",
-    url: "https://aksarasasak.id/aksara-sasak",
+    url: "https://arh007.github.io/aksara-sasak",
     type: "website",
     images: [{
-        url: "https://aksarasasak.id/aksara-sasak/aksara-sasak.png",
+        url: "https://arh007.github.io/aksara-sasak/aksara-sasak.png",
       },],
     site_name: "Transliterasi Aksara Sasak",
   }}
@@ -26,7 +26,7 @@ import { base } from '$app/paths';
     card: "summary_large_image",
     title: "Transliterasi Aksara Sasak",
     description: "Alat transliterasi sederhana untuk mengalihkan/mengubah/mengkonversi teks aksara Sasak ke bentuk aksara lain ataupun sebaliknya.",
-    image: "https://aksarasasak.id/aksara-sasak/aksara-sasak.png",
+    image: "https://arh007.github.io/aksara-sasak/aksara-sasak.png",
   }}
 />
 
