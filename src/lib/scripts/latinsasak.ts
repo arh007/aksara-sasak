@@ -72,15 +72,15 @@ const murdaConsonants:{ [id: string]: string; } = {
 const penganggeArdhaswara:{ [id: string]: string; } = {
     r: '᭄ᬭ',   // cakra
     ṛ: 'ᬺ',  // guwung maclek
-    rê:'ᬺ', //guwung maclek
-    rě:'ᬺ', //guwung maclek
-    y: '᭄ᬬ',   // pengkal
-    l: '᭄ᬮ',   
-    w: '᭄ᬯ', 
-    lê:'ᬍ', //nga lêlêt
-    lě:'ᬍ', //nga lělět
-    lêu:'ᬎ', //nga lêlêt Raswadi -- archaic
-    lěu: 'ᬎ', //nga lělět Raswadi -- archaic
+    rê:'ᬺ', // guwung maclek
+    rě:'ᬺ', // guwung maclek
+    y: '᭄ᬬ',  // nania
+    l: '᭄ᬮ',   // gantungan la
+    w: '᭄ᬯ',  // suku kěmbung
+    lê:'ᬍ',   // gantungan la-pěpět
+    lě:'ᬍ',   // gantungan la-pěpět
+    lêu:'ᬎ',  // nga lêlêt Raswadi -- archaic
+    lěu:'ᬎ',  // nga lělět Raswadi -- archaic
 }
 
 const penganggeTangenan:{ [id: string]: string; } = {
@@ -115,9 +115,6 @@ const pengaggeSwara:{ [id: string]: string; } = {
     o: 'ᭀ',
     rö:' ᬻ',
     lö:'ᬽ',
-    ṛ: 'ᬺ',  //guwung maclek
-    rê:'ᬺ', //guwung maclek
-    rě:'ᬺ', //guwung maclek
 }
 
 const cecirenpepaosan:{ [id: string]: string; } = {
